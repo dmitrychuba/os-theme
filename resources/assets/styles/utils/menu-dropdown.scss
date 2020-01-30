@@ -1,0 +1,146 @@
+.menu-trigger-button {
+    cursor      : pointer;
+    display     : none;
+    margin-left : auto;
+
+    &:hover {
+        color : $c-blue;
+    }
+
+    &:after {
+        content : $fa-var-bars;
+        @extend .fa;
+    }
+}
+
+
+.menu-dropdown {
+    margin     : 0;
+    padding    : 0;
+    //display     : flex;
+    list-style : none;
+    //align-items : center;
+    //@extend .col;
+
+    .menu-item {
+        order    : 0;
+        margin   : 0;
+        position : relative;
+
+        a {
+            display        : flex;
+            padding        : $sp-1 $sp-3 + $sp-2;
+            transition     : color .3s;
+            text-transform : uppercase;
+            @include f($f-menu-links-titles)
+        }
+
+        &.menu-item-has-children > a:after {
+            color        : $c-blue;
+            content      : $fa-var-angle-down;
+            transition   : transform .3s;
+            padding-left : $sp-2;
+            @extend .fa;
+            @include f(26px);
+        }
+
+        .sub-menu {
+            background-color : $c-gray;
+
+
+            .menu-item {
+                a {
+                    padding : $sp-2 0;
+                }
+            }
+
+            @include submenu {
+                padding : $sp-3 #{$sp-3 + $sp-2};
+            }
+
+            @include submenu-hidden { transform : translateY(-10px); }
+
+        }
+
+        &:hover {
+            > a {
+                //color           : $c-blue;
+                text-decoration : none;
+            }
+
+            &.menu-item-has-children > a:after { transform : translateY(4px); }
+
+            .sub-menu { @include submenu-visible; }
+        }
+    }
+}
+
+
+////////////////////////////
+@include media('<1366px') {
+    .menu-dropdown {
+        $menu-items-sp-sm : $sp-2;
+
+        .menu-item {
+            a { padding : $sp-1 $menu-items-sp-sm; }
+
+            &.menu-item-has-children > a:after { padding-left : $menu-items-sp-sm; }
+
+            .sub-menu {
+                left    : -$sp-3;
+                padding : $menu-items-sp-sm $sp-4;
+            }
+        }
+    }
+}
+
+@include media('<1200px') {
+    .menu-dropdown {
+        top              : 100%;
+        right            : 0;
+        width            : auto;
+        display          : inline-flex;
+        position         : absolute;
+        z-index          : 1;
+        align-items      : flex-start;
+        padding-top      : $sp-3;
+        flex-direction   : column;
+        background-color : $c-gray;
+        @include submenu-hidden;
+
+        .menu-item {
+            order   : 1;
+            padding : 0 $sp-3 $sp-4;
+
+            .sub-menu {
+                opacity    : 1;
+                position   : static;
+                transform  : none;
+                visibility : visible;
+
+                .menu-item {
+                    margin  : 0;
+                    padding : $sp-3 0 0;
+
+                    a { @include f(14px, $fw-light, $c-white); }
+                }
+            }
+        }
+    }
+
+    .menu-trigger-button {
+        display : block;
+    }
+
+    .menu-open {
+        .menu-trigger-button:after {
+            content : $fa-var-times;
+        }
+
+        .menu-dropdown { @include submenu-visible; }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .menu-dropdown { width : 100%; }
+}

@@ -1,0 +1,45 @@
+$animation-name : drawBorderPseudo;
+@keyframes #{$animation-name} {
+    from {
+        width  : 0;
+        height : 0;
+    }
+
+    to {
+        width  : 100%;
+        height : 100%;
+    }
+}
+
+.#{$animation-name} {
+    position : relative;
+
+    &:after,
+    &:before {
+        width        : 0px;
+        height       : 0px;
+        content      : '';
+        position     : absolute;
+        transition   : width 3s, height 3s;
+        border-style : solid;
+        border-color : #fff;
+        border-width : 0;
+    }
+
+    &:before {
+        top               : 0;
+        left              : 0;
+        animation-name    : #{$animation-name};
+        border-top-width  : 1px;
+        border-left-width : 1px;
+    }
+
+    &:after {
+        right               : 0;
+        bottom              : 0;
+        animation-name      : #{$animation-name};
+        border-right-width  : 1px;
+        border-bottom-width : 1px;
+    }
+
+}

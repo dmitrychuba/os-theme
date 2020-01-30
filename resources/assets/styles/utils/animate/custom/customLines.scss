@@ -1,0 +1,44 @@
+$animation-down-name-base : customLineDown;
+[data-animate*="#{$animation-down-name-base}"] {
+    top              : 100%;
+    left             : 50%;
+    width            : 2px;
+    position         : absolute;
+    background-color : $c-blue;
+}
+
+$an1                      : "#{$animation-down-name-base}1";
+
+@keyframes #{$an1} {
+    from { height : 0;}
+    to { height : 224px; }
+}
+
+.#{$an1} { animation-name : #{$an1};}
+
+$an2                      : "#{$animation-down-name-base}2";
+
+@keyframes #{$an2} {
+    from { height : 0;}
+    to { height : 580px; }
+}
+
+.#{$an2} { animation-name : #{$an2};}
+
+
+$animation-x-name         : customLineX;
+[data-animate*="#{$animation-x-name}"] {
+    height           : 2px;
+    background-color : $c-blue;
+    @extend %xy-align;
+}
+
+
+@keyframes #{$animation-x-name} {
+    from { width : 0;}
+    to { width : 880px; }
+}
+
+.#{$animation-x-name} { animation-name : #{$animation-x-name};}
+
+

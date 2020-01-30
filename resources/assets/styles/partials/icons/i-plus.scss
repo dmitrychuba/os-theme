@@ -1,0 +1,44 @@
+$i-plus-size     : 34px !default;
+$i-plus-width    : 1px !default;
+$i-plus-fg-color : #000 !default;
+$i-plus-bg-color : #fff !default;
+
+.i-plus {
+    width            : $i-plus-size;
+    height           : $i-plus-size;
+    border           : $i-plus-width solid $i-plus-fg-color;
+    cursor           : pointer;
+    position         : relative;
+    transition       : background-color .3s;
+    border-radius    : 50%;
+    background-color : $i-plus-bg-color;
+    $i-plus-padding  : 45;
+
+    &:after,
+    &:before {
+        $plus-size       : $i-plus-size * (1 - $i-plus-padding/100);
+        top              : 50%;
+        left             : 50%;
+        width            : $plus-size;
+        height           : $i-plus-width;
+        content          : '';
+        position         : absolute;
+        transition       : background-color .3s;
+        margin-top       : - #{$i-plus-width/2};
+        margin-left      : - #{$plus-size/2};
+        background-color : $i-plus-fg-color;
+    }
+
+
+    &:after {
+        transform : rotate(90deg);
+    }
+
+    &:hover {
+        background-color : $i-plus-fg-color;
+
+        &:after, &:before {
+            background-color : $i-plus-bg-color;
+        }
+    }
+}

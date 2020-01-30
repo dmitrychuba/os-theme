@@ -1,0 +1,92 @@
+html, body {
+    height : 100%;
+}
+
+html {
+    //background-color       : $c-red;
+    -webkit-font-smoothing : antialiased !important;
+    overflow-wrap          : break-word;
+    word-wrap              : break-word;
+}
+
+.main-container {
+    overflow         : hidden;
+    min-width        : 320px;
+    min-height       : 100%;
+    //transition       : padding .2s;
+    background-color : $c-white;
+
+    img {
+        max-width : 100%;
+    }
+}
+
+.banner {
+    background-size     : cover;
+    background-position : center;
+}
+
+.abs-cover {
+    top      : 0;
+    left     : 0;
+    width    : 100%;
+    height   : 100%;
+    position : absolute;
+}
+
+.aligncenter {
+    margin-left  : auto;
+    margin-right : auto;
+}
+
+.alignright {
+    float         : right;
+    margin-left   : 10px;
+    margin-bottom : 4px;
+}
+
+.alignleft {
+    float         : left;
+    margin-right  : 10px;
+    margin-bottom : 4px;
+}
+
+.cursor-pointer {
+    cursor : pointer;
+}
+
+.bg-gray {
+    color            : $c-white;
+    background-color : $c-gray;
+}
+
+.img-cover {
+    height          : auto;
+    max-width       : 100%;
+    object-fit      : cover;
+    object-position : center;
+}
+
+.text-red {
+    color : $c-red;
+}
+
+.line-bold {
+    border-top : 9px solid $c-black;
+}
+
+.overflow {
+    overflow : visible !important;
+}
+
+.text-nowrap {
+    white-space : nowrap !important;
+}
+
+.absolute-center {
+    @extend %xy-align;
+}
+
+.absolute-cover {
+    @extend %abs-cover;
+}

@@ -1,0 +1,36 @@
+$menu-hover-bg : #000 !default;
+$menu-hover-fg : #fff !default;
+
+.menu-item {
+    position : relative;
+
+    &:before {
+        z-index          : 0;
+        content          : '';
+        opacity          : 0;
+        transform        : scale(0);
+        transition       : transform .2s, opacity .2s;
+        border-radius    : 2px;
+        background-color : $menu-hover-bg;
+        @extend %abs-cover;
+    }
+
+    a {
+        z-index    : 1;
+        position   : relative;
+        transition : color .3s;
+        //padding : $sp-2 0;
+    }
+
+    &:hover {
+        a {
+            color : $menu-hover-fg;
+        }
+
+        &:before {
+            opacity   : 1;
+            transform : scale(1);
+        }
+    }
+}
+

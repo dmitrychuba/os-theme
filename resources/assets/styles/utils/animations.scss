@@ -1,0 +1,39 @@
+@import "animate/animate";
+@keyframes zoomInMap {
+    0% {
+        opacity   : 0;
+        transform : scale3d(.9, .9, .9);
+    }
+    100% {
+        opacity   : 1;
+        transform : scale3d(1, 1, 1);
+    }
+}
+
+@keyframes slideDownHeader {
+    0% {
+        transform : translate3d(0, -100%, 0);
+    }
+    100% {
+        transform : translate3d(0, 0%, 0);
+    }
+}
+
+@keyframes zoomInPreloader {
+    0% {
+        opacity   : 0;
+        transform : scale3d(.5, .5, .5);
+    }
+    20% {
+        opacity : 1;
+    }
+    100% {
+        opacity   : 1;
+        transform : scale3d(1, 1, 1);
+    }
+}
+
+@keyframes beat {
+    0%, 100% { transform : scale3d(1, 1, 1); }
+    50% { transform : scale3d(1.1, 1.1, 1.1); }
+}

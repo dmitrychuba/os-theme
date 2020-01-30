@@ -1,0 +1,16 @@
+.video-responsive {
+    padding          : 56.25% 0 0 0;
+    position         : relative;
+    background-color : #333;
+
+    &:before {
+        content : $fa-var-spinner;
+        z-index : 0;
+        @extend %xy-align, .fa, .fa-spin, .fa-2x;
+    }
+
+    iframe {
+        z-index : 1;
+        @extend %abs-cover;
+    }
+}

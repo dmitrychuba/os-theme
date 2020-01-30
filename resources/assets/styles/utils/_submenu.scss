@@ -1,0 +1,72 @@
+@mixin fade-out {
+    opacity    : 0;
+    visibility : hidden;
+    transition : opacity .5s ease, visibility 0s linear .5s;
+}
+
+@mixin fade-in {
+    opacity    : 1;
+    transition : opacity .3s ease, visibility 0s;
+    visibility : visible;
+}
+
+@mixin submenu {
+    top        : 100%;
+    left       : 0;
+    //margin     : 0;
+    //padding    : 0;
+    z-index    : 5;
+    position   : absolute;
+    list-style : none;
+    a {
+        white-space : nowrap;
+    }
+
+    @content;
+}
+
+@mixin submenu-hidden {
+    @include fade-out;
+    transform  : translateY(-20px);
+    transition : transform .5s, opacity .5s ease, visibility 0s linear .5s;
+    @content;
+}
+
+@mixin submenu-visible {
+    @include fade-in;
+    transform  : translateY(0);
+    transition : transform .5s, opacity .3s ease, visibility 0s;
+    @content;
+}
+
+
+@mixin sub-submenu {
+    top        : 0;
+    left       : 100%;
+    //margin     : 0;
+    //padding    : 0;
+    z-index    : 5;
+    position   : absolute;
+    list-style : none;
+
+    a {
+        white-space : nowrap;
+    }
+
+    @content;
+}
+
+@mixin sub-submenu-hidden {
+    @include fade-out;
+    transform  : translateX(-20px);
+    transition : transform .5s, opacity .5s ease, visibility 0s linear .5s;
+    @content;
+
+}
+
+@mixin sub-submenu-visible {
+    @include fade-in;
+    transform  : translateX(0);
+    transition : transform .5s, opacity .3s ease, visibility 0s;
+    @content;
+}

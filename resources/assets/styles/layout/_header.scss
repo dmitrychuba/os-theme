@@ -1,0 +1,19 @@
+#mainHeader {
+    color     : $c-gray;
+    transform : translate3d(0, -100%, 0);
+
+    .header-content {
+        width            : 100%;
+        z-index          : 3;
+        position         : relative;
+        background-color : $c-white;
+    }
+}
+
+#headerBar {
+    top              : 100%;
+    width            : 100%;
+    z-index          : 2;
+    position         : absolute;
+    background-color : $c-blue2;
+}

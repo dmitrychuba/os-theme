@@ -1,0 +1,51 @@
+@import "vars";
+@import "base";
+//
+@import "fading_entrances/fadeIn";
+@import "fading_entrances/fadeInDown";
+@import "fading_entrances/fadeInDownBig";
+@import "fading_entrances/fadeInDownSmall";
+@import "fading_entrances/fadeInLeft";
+@import "fading_entrances/fadeInLeftBig";
+@import "fading_entrances/fadeInLeftSmall";
+@import "fading_entrances/fadeInRight";
+@import "fading_entrances/fadeInRightBig";
+@import "fading_entrances/fadeInRightSmall";
+@import "fading_entrances/fadeInUp";
+@import "fading_entrances/fadeInUpBig";
+@import "fading_entrances/fadeInUpSmall";
+@import "fading_entrances/fadeInZoomIn";
+@import "fading_entrances/fadeInZoomOut";
+//
+@import "custom/customLines";
+//
+//@import "fading_exits/fadeOut";
+@import "specials/drawBorderPseudo";
+//@import "specials/jackInTheBox";
+//
+// @import "attention_seekers/heartBeat";
+// @import "bouncing_entrances/*";
+// @import "bouncing_exits/*";
+@import "flippers/flipInY";
+@import "flippers/flipInX";
+// @import "lightspeed/lightSpeedIn";
+// @import "rotating_entrances/*";
+// @import "rotating_exits/*";
+// @import "sliding_entrances/*";
+// @import "sliding_exits/*";
+// @import "specials/*";
+// @import "zooming_entrances/*";
+// @import "zooming_exits/*";
+//
+
+
+@keyframes shadow-drop-2-bottom {
+    0% {
+        transform  : translateZ(0) translateY(0);
+        box-shadow : 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform  : translateZ(50px) translateY(-12px);
+        box-shadow : 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+    }
+}

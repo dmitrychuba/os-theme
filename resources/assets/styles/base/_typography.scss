@@ -1,0 +1,17 @@
+// Bootstrap Overwrites
+$font-family-base     : $f-text;
+$font-size-base       : rem-calc(18px);
+$body-color           : $c-text;
+
+$headings-color       : $c-titles;
+$headings-font-weight : $fw-extra-bold;
+$headings-font-family : $f-titles;
+
+$h1-font-size         : rem-calc(35px);
+$h2-font-size         : rem-calc(30px);
+$h3-font-size         : rem-calc(25px);
+$h4-font-size         : rem-calc(23px);
+$h5-font-size         : rem-calc(16px);
+$h6-font-size         : rem-calc(12px);
+
+// $headings-line-height : '';

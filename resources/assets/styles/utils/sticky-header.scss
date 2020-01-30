@@ -1,0 +1,38 @@
+.sticky-header {
+    top        : 0;
+    left       : 0;
+    width      : 100vw;
+    z-index    : 100;
+    position   : fixed;
+    box-shadow : 0 3px 12px 3px rgba(#000, .05);
+
+}
+
+.has-preloader .sticky-header {
+    transform : translate3d(0, -100%, 0);
+}
+
+.loaded .sticky-header--slide-down {
+    animation : slideDownHeader 1s ease-out .1s forwards;
+}
+
+.admin-bar {
+    .sticky-header {
+        top : 32px;
+    }
+
+    @include media('<=782px') {
+        .sticky-header {
+            top : 46px;
+        }
+    }
+
+    @include media('<=600px') {
+        #wpadminbar {
+            position : fixed;
+        }
+        //    .sticky-header {
+        //        top : 0px;
+        //    }
+    }
+}

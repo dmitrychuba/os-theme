@@ -1,0 +1,78 @@
+// Fonts Settings
+///////////////////////////////////////////////////////////////////
+$fw-thin              : 100;
+$fw-extra-light       : 200;
+$fw-light             : 300;
+$fw-normal            : 400;
+$fw-medium            : 500;
+$fw-semi-bold         : 600;
+$fw-bold              : 700;
+$fw-extra-bold        : 800;
+$fw-ultra-bold        : 900;
+//
+//@import "https://use.typekit.net/fqe4qfl.css";
+
+$f-helvetica          : 'Helvetica';
+$f-helvetica-black    : 'Helvetica-Black';
+$f-myriad-pro-regular : 'MyriadPro-Regular';
+
+//
+$local-fonts          : (
+    //$f-helvetica,
+    //$f-helvetica-black,
+    //$f-myriad-pro-regular
+);
+//
+$f-text               : $f-helvetica;
+$f-titles             : $f-helvetica-black;
+$f-menu-links-titles  : itc-avant-garde-gothic-pro;
+//
+// Colors
+///////////////////////////////////////////////////////////////////
+$c-black              : #000;
+$c-dark               : #222;
+$c-white              : #fff;
+//
+$c-red                : #910611;
+$c-orange             : #fcbe2b;
+$c-blue               : #164053;
+$c-blue2              : #3a5978;
+$c-milk               : #e0e2d2;
+$c-gray               : #4d4d4d;
+$c-light              : #fcfcfc;
+//
+$c-text               : $c-dark;
+$c-main               : $c-gray;
+$c-titles             : $c-dark;
+//
+// $c-buttons            : $c-blue;
+// $c-bg-dark            : $c-gray;
+// $c-bg-blue            : $c-blue-lighter;
+// $c-bg-light           : $c-light;
+//
+
+//:root {
+//    --theme-color-red       : $c-red;
+//    --theme-color-red-hover : darken($c-red, 10%);
+//}
+
+//
+// Timing Functions
+///////////////////////////////////////////////////////////////////
+$tf-smooth            : cubic-bezier(0.250, 0.460, 0.450, 0.940);
+//
+// Bootstrap Config
+///////////////////////////////////////////////////////////////////
+$primary              : $c-blue;
+$secondary            : $c-gray;
+$danger               : $c-red;
+// $enable-rounded       : false;
+//
+
+// $grid-breakpoints: (
+//    xs: 0,
+//    sm: 576px,
+//    md: 768px,
+//    lg: 992px,
+//    xl: 1200px
+// );

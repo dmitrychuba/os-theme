@@ -1,0 +1,25 @@
+.section {
+    &__title-box {
+        padding    : $sp-3 $sp-4;
+        text-align : center;
+    }
+    &__title {
+        margin-bottom : 0;
+    }
+
+    &__title, &__text {
+        color : #fff;
+    }
+
+    &__light {
+        .section__title, .section__text {
+            color : $c-blue2;
+        }
+
+        .section__title-box {
+            &:before, &:after {
+                border-color : $c-blue2;
+            }
+        }
+    }
+}
