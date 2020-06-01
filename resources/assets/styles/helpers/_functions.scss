@@ -164,7 +164,7 @@ $fonts-base     : '../fonts' !default;
     @return '../images/#{$folder}';
 }
 
-@function percentage-calc($size-in-px, $width : $middle-max-width) {
+@function percentage-calc($size-in-px, $width : 1024) {
     @return $size-in-px*100%/$width;
 }
 
@@ -243,12 +243,6 @@ $fonts-base     : '../fonts' !default;
     @return _ss-str-explode($string, $delimiter);
 }
 
-@function data($attr) {
-    @if $namespace {
-        @return '[data-' + $namespace + '-' + $attr + ']';
-    }
-    @return '[data-' + $attr + ']';
-}
 
 // Read the article: http://sassbreak.com/viewport-relative-headings-with-sass
 $max-breakpoint : 1400;
@@ -532,11 +526,10 @@ $max-breakpoint : 1400;
 //    @return $value;
 //}
 
-
-$files: woff ttf svg eot !default;
+$default-font-files: woff woff2 ttf svg eot !default;
 $include-fonts  : true !default;
-@if ($include-fonts & & $local-fonts) {
+@if ($include-fonts and $local-fonts) {
     @each $font in $local-fonts {
-        @include custom-font($font, $files);
+        @include custom-font($font, $default-font-files);
     }
 }

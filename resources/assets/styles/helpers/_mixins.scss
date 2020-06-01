@@ -183,16 +183,8 @@
     }
 }
 
-@mixin custom-font($font-name, $files: woff woff2 ttf svg eot) {
-    @include font-face($font-name, $font-name+'/'+$font-name, $files);
-    //@include font-face($font-name, font-files($font-name+'/'+$font-name+'.woff', $font-name+'/'+$font-name+'.ttf', $font-name+'/'+$font-name+'.svg'), $font-name+'/'+$font-name+'.eot');
-}
-
-@mixin custom-font-v1($font-name, $file-name: false, $weight: false) {
-    @if ($file-name == false) {
-        $file-name : $font-name;
-    }
-    @include font-face($font-name, font-files($file-name+'/'+$file-name+'.woff', $file-name+'/'+$file-name+'.ttf', $file-name+'/'+$file-name+'.svg'), $file-name+'/'+$file-name+'.eot', $weight);
+@mixin custom-font($font-name,  $default-files: woff woff2 ttf svg eot, $weight: null, $style: null) {
+    @include font-face($font-name, $font-name+'/'+$font-name, $default-files);
 }
 
 @mixin bg($params...) {
