@@ -194,6 +194,7 @@
     $is-image               : false;
     $is-retina              : false;
     $image-url              : false;
+    $is-repeat              : false;
     $retina-url             : false;
     $is-gradient            : false;
     $is-dimensions          : false;
@@ -219,6 +220,7 @@
         }
         @if (index($background-repeat, $param)) {
             background-repeat : $param;
+            $is-repeat        : true;
         }
         @if (index($background-image, $param) or (type-of($param)=='string' and str-index(to-lower-case($param), '.'))) {
             $is-image : $param;
@@ -255,6 +257,10 @@
 
     @if ($is-gradient != false) {
         @include background-image($is-gradient);
+    }
+
+    @if ($is-repeat != true) {
+        background-repeat : no-repeat;
     }
 
     @if ($is-image != false and $is-dimensions != false) {
