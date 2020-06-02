@@ -1,6 +1,6 @@
 // This is the default html and body font-size for the base rem value.
-$rem-base       : 16px !default;
-$fonts-base     : '../fonts' !default;
+$rem-base           : 16px !default;
+$fonts-base         : '../fonts' !default;
 //
 // @functions
 //
@@ -245,7 +245,7 @@ $fonts-base     : '../fonts' !default;
 
 
 // Read the article: http://sassbreak.com/viewport-relative-headings-with-sass
-$max-breakpoint : 1400;
+$max-breakpoint     : 1400;
 
 @function get-vw($target, $max-breakpoint : 1400) {
     $vw-context : ($max-breakpoint * .01) * 1px;
@@ -416,6 +416,7 @@ $max-breakpoint : 1400;
     $weight  : false;
     $color   : false;
     $name    : false;
+    $style   : false;
 
     $weights : (normal, ligher, bold, bolder);
 
@@ -430,6 +431,8 @@ $max-breakpoint : 1400;
                     (index($weights, $param))
             ) {
                 $weight : $param;
+            } @else if (type-of($param)=='string' and str-index($param, 'italic')) {
+                $style  : $param;
             } @else if (type-of($param) == 'number' or (type-of($param)=='string' and str-index($param, '/')) or (type-of($param) == 'number' and index('px' 'em' 'rem' 'pt' '%', unit($param)))) {
                 $size   : $param;
             } @else {
@@ -480,6 +483,10 @@ $max-breakpoint : 1400;
         font-weight : $weight;
     }
 
+    @if ($style != false) {
+        font-style : $style;
+    }
+
     @if ($name != false) {
         font-family : font-family($name);
     }
@@ -526,8 +533,8 @@ $max-breakpoint : 1400;
 //    @return $value;
 //}
 
-$default-font-files: woff woff2 ttf svg eot !default;
-$include-fonts  : true !default;
+$default-font-files : woff woff2 ttf svg eot !default;
+$include-fonts      : true !default;
 @if ($include-fonts and $local-fonts) {
     @each $font in $local-fonts {
         @include custom-font($font, $default-font-files);
