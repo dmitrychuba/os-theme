@@ -6,15 +6,14 @@
     position   : fixed;
     box-shadow : 0 3px 12px 3px rgba(#000, .05);
 
+    &--slide-down {
+        transform : translate3d(0, -100%, 0);
+    }
+    .loaded &--slide-down {
+        animation : slideDownHeader 1s ease-out .1s forwards;
+    }
 }
 
-.has-preloader .sticky-header {
-    transform : translate3d(0, -100%, 0);
-}
-
-.loaded .sticky-header--slide-down {
-    animation : slideDownHeader 1s ease-out .1s forwards;
-}
 
 .admin-bar {
     .sticky-header {

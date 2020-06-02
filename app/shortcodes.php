@@ -9,38 +9,42 @@ namespace App;
 add_action( 'init', function() {
 	$shortcodes_relative_path = 'shortcodes';
 
-	collect( scandir( get_theme_file_path() . "/resources/views/$shortcodes_relative_path" ) )
-		->reject( function( $item ) {
-			return stristr( $item, '.blade.php' ) === false;
-		} )
-		->map( function( $item ) use ( $shortcodes_relative_path ) {
-			$shortcode = str_ireplace( '.blade.php', '', $item );
+	$shortcodes_dir = get_theme_file_path() . "/resources/views/$shortcodes_relative_path";
 
-			add_shortcode( $shortcode, function( $atts, $content ) use ( $shortcode, $shortcodes_relative_path ) {
+	if (is_dir( $shortcodes_dir )) {
+		collect( scandir( $shortcodes_dir ) )
+			->reject( function( $item ) {
+				return stristr( $item, '.blade.php' ) === false;
+			} )
+			->map( function( $item ) use ( $shortcodes_relative_path ) {
+				$shortcode = str_ireplace( '.blade.php', '', $item );
 
-				if ( is_array( $atts ) ) extract( $atts );
+				add_shortcode( $shortcode, function( $atts, $content ) use ( $shortcode, $shortcodes_relative_path ) {
 
-				// Start object caching or output
-				ob_start();
+					if ( is_array( $atts ) ) extract( $atts );
 
-				// Set the template we're going to use for the Shortcode
-				$template = "$shortcodes_relative_path/$shortcode";
+					// Start object caching or output
+					ob_start();
 
-				// Set up template data
-				$data = collect( get_body_class() )->reduce( function( $data, $class ) use ( $template ) {
-					return apply_filters( "sage/template/{$class}/data", $data, $template );
-				}, [] );
+					// Set the template we're going to use for the Shortcode
+					$template = "$shortcodes_relative_path/$shortcode";
 
-				$atts = empty( $atts ) ? [] : (array) $atts;
+					// Set up template data
+					$data = collect( get_body_class() )->reduce( function( $data, $class ) use ( $template ) {
+						return apply_filters( "sage/template/{$class}/data", $data, $template );
+					}, [] );
 
-				$content = preg_replace( '~^\s*?</p>~', '', $content );
-				$content = preg_replace( '~<p>\s*?$~', '', $content );
+					$atts = empty( $atts ) ? [] : (array) $atts;
 
-				// Echo the shortcode blade template
-				echo template( $template, $data + $atts + compact( 'content' ) );
+					$content = preg_replace( '~^\s*?</p>~', '', $content );
+					$content = preg_replace( '~<p>\s*?$~', '', $content );
 
-				// Return cached object
-				return ob_get_clean();
+					// Echo the shortcode blade template
+					echo template( $template, $data + $atts + compact( 'content' ) );
+
+					// Return cached object
+					return ob_get_clean();
+				} );
 			} );
-		} );
+	}
 } );
